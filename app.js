@@ -14,8 +14,9 @@ var app = express();
 
 //DB Connection Setup
 const mongoose = require("mongoose");
-const mongoDBURI =
+const dev_db_url =
   "mongodb+srv://root:root@librarydb.e2dta.mongodb.net/local_library?retryWrites=true&w=majority";
+const mongoDBURI = process.env.mongoDBURI || dev_db_url;
 
 mongoose.connect(mongoDBURI, {
   useNewUrlParser: true,
